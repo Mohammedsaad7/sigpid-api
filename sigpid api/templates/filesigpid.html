@@ -1,0 +1,81 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/sub.css?ver=9" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+  <body>
+
+<div class="card mx-auto", style="width: 25rem;vertical-align: middle; margin-top: 100px; margin-bottom: 20px; ">
+
+    <!--Header-->
+    <h5 class="card-header text-center">
+      <strong>Upload apk file</strong>
+  </h5>
+  <form action="/predict" method="POST" enctype="multipart/form-data">
+    <div class="card-body px-lg-5 pt-0">
+      <div class="form-group">
+        <p>Select file</p>
+        <div class="custom-file">
+          <input type="file" class="custom-file-input" name="file" id="inputfile">
+          <label class="custom-file-label" for="inputfile">Select file...</label>
+        </div>
+      </div>
+    <p><input type="submit" onclick="$('#loading').show();" class="btn btn-outline-info btn-rounded btn-block z-depth-0 my-4 waves-effect" value="Submit"></p>
+  </form>
+  <div id="loading" style="display:none;"><img src="static/loading.gif" alt="" />Loading!</div>
+</div>
+</div>
+<script>
+  $("#inputfile").change(function () {
+  
+  var fieldVal = $(this).val();
+  
+  // Change the node's value by removing the fake path (Chrome)
+  fieldVal = fieldVal.replace("C:\\fakepath\\", "");
+  
+  if (fieldVal != undefined || fieldVal != "") {
+    $(this).next(".custom-file-label").html(fieldVal);
+  }
+  
+  });
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
+</html>
+
+
+<!-- <div class="container">
+    <div class="row">
+      <div class="col">
+  
+        <h1>Upload an apk file</h1>
+        <hr>
+  
+        <form action="/sigpidprocess" method="POST" enctype="multipart/form-data">
+  
+          <div class="form-group">
+            <label>Select file</label>
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" name="file" id="file">
+              <label class="custom-file-label" for="image">Select file...</label>
+            </div>
+          </div>
+  
+          <button type="submit" class="btn btn-primary">Upload</button>
+  
+        </form>
+  
+      </div>
+    </div>
+  </div>
+  <br>
+  {{filee}} -->
